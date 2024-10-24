@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #111;
+    color: white;
+}
+
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.text-area {
+    max-width: 500px;
+}
+
+.hero-title {
+    font-size: 3rem;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+.hero-title:hover{
+font-size: 3.5rem;
+animation:ease-in;
+opacity: 1;
+color: plum;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1.5s ease-in-out forwards;
+}
+
+.image-area {
+    display: flex;
+    gap: 20px;
+}
+
+.image-box {
+    width: 300px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.image-box:hover {
+    transform: scale(1.05);
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.image-box:hover img {
+    filter: none;
+}
+
+.image-box img {
+    filter: grayscale(100%) brightness(50%);
+    transition: filter 0.3s ease;
+}
+
+.image-box:hover img {
+    filter: none;
+}
+
+.image-box:hover ~ .text-area .hero-title,
+.image-box:hover ~ .text-area .hero-subtitle {
+    color: #ff9800;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
